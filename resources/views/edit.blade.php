@@ -30,7 +30,7 @@
     </nav>
 
     <div class="container">
-        <form action="{{ route('create') }}" method="POST">
+        <form action="{{ route('edit.post', ['blog' => $blog]) }}" method="POST">
             @csrf
             <h1>Edit</h1>
             <div class="mb-3">

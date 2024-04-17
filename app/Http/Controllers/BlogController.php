@@ -27,4 +27,13 @@ class BlogController extends Controller
     {
         return view('edit', ['blog' => $blog]);
     }
+    public function edit(Blog $blog, Request $request)
+    {
+        $data = $request->validate([
+            'title' => 'required',
+            'description' => "required"
+        ]);
+        $blog->update($data);
+        return redirect(route('reading'));
+    }
 }

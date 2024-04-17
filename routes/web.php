@@ -19,3 +19,4 @@ Route::get('/read', [BlogController::class, 'reading'])->name('reading');
 Route::post('/read', [BlogController::class, 'createBlog'])->name('create');
 
 Route::get('/edit/{blog}', [BlogController::class, 'editing'])->name('edit');
+Route::post('/edit/{blog}', [BlogController::class, 'edit'])->name('edit.post');

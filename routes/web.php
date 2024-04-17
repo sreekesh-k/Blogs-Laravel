@@ -13,3 +13,4 @@ Route::get('/register', [DisplayController::class, 'register'])->name('register'
 Route::post('/register', [AuthManager::class, 'register'])->name('register.post');
 
 Route::get('/read', [DisplayController::class, 'reading'])->name('reading');
+Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');

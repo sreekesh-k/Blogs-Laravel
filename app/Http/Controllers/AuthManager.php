@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AuthManager extends Controller
 {
@@ -31,5 +32,10 @@ class AuthManager extends Controller
 
         $newuser = User::create($data);
         return redirect()->intended(route('login'));
+    }
+    public function logout(){
+        Session::flush();
+        Auth::logout();
+        return redirect()->intended(route('homepage'));
     }
 }

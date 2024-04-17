@@ -16,4 +16,4 @@ Route::post('/register', [AuthManager::class, 'register'])->name('register.post'
 Route::get('/logout', [AuthManager::class, 'logout'])->name('logout');
 
 Route::get('/read', [BlogController::class, 'reading'])->name('reading');
-
+Route::post('/read', [BlogController::class, 'createBlog'])->name('create');

@@ -28,14 +28,14 @@
             </div>
         </div>
     </nav>
-    
+
     <div class="container">
-        <form action="" method="POST">
+        <form action="{{ route('create') }}" method="POST">
             @csrf
             <h1>Create</h1>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Title</label>
-                <input type="text" class="form-control" name="email">
+                <input type="text" class="form-control" name="title">
 
             </div>
             <div class="mb-3">
@@ -61,8 +61,8 @@
                 <tr>
                     <th scope="row">{{ $blog->created_at }}</th>
                     <td>{{ $blog->username }}</td>
-                    <td>{{ $blog->tite }}</td>
-                    <td>@{{ $blog - > description }}</td>
+                    <td>{{ $blog->title }}</td>
+                    <td>{{ $blog->description }}</td>
                 </tr>
             @endforeach
         </tbody>

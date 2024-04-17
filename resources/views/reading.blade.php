@@ -67,7 +67,12 @@
                     <td>{{ $blog->title }}</td>
                     <td>{{ $blog->description }}</td>
                     <td><a href="{{ route('edit', ['blog' => $blog]) }}">edit</a></td>
-                    <td><a href="">delete</a></td>
+                    <td>
+                        <form action="{{ route('delete', ['blog' => $blog]) }}" method="POST">
+                            @csrf
+                            <input type="submit" value="delete" name="delete">
+                        </form>
+                    </td>
                 </tr>
             @endforeach
         </tbody>

@@ -36,4 +36,9 @@ class BlogController extends Controller
         $blog->update($data);
         return redirect(route('reading'));
     }
+    public function destroy(Blog $blog)
+    {
+        $blog->delete();
+        return redirect(route('reading'));
+    }
 }

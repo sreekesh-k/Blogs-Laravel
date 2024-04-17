@@ -28,9 +28,46 @@
             </div>
         </div>
     </nav>
+    
     <div class="container">
-        
+        <form action="" method="POST">
+            @csrf
+            <h1>Create</h1>
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Title</label>
+                <input type="text" class="form-control" name="email">
+
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Description</label>
+                <textarea class="form-control" name="description"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Time</th>
+                <th scope="col">Author</th>
+                <th scope="col">Title</th>
+                <th scope="col">Blog</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach ($blogs as $blog)
+                <tr>
+                    <th scope="row">{{ $blog->created_at }}</th>
+                    <td>{{ $blog->username }}</td>
+                    <td>{{ $blog->tite }}</td>
+                    <td>@{{ $blog - > description }}</td>
+                </tr>
+            @endforeach
+        </tbody>
+    </table>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 

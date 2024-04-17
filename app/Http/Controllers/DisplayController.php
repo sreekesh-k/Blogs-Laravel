@@ -18,8 +18,4 @@ class DisplayController extends Controller
     {
         return view('register');
     }
-    public function reading()
-    {
-        return view('reading');
-    }
 }

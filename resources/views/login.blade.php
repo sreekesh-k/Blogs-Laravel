@@ -10,8 +10,8 @@
 
 <body>
     <div class="container">
-        <h1>Login</h1>
-        <form>
+        <form action="{{route('login.post')}}" method="POST" class="ms-auto me-auto" style="width:500px">
+            <h1>Login</h1>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
                 <input type="email" class="form-control" name="email">

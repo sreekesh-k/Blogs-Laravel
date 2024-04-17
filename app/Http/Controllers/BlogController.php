@@ -23,4 +23,8 @@ class BlogController extends Controller
         $newblog = Blog::create($data);
         return redirect(route('reading'));
     }
+    public function editing(Blog $blog)
+    {
+        return view('edit', ['blog' => $blog]);
+    }
 }

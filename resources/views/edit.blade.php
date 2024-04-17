@@ -32,46 +32,20 @@
     <div class="container">
         <form action="{{ route('create') }}" method="POST">
             @csrf
-            <h1>Create</h1>
+            <h1>Edit</h1>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Title</label>
-                <input type="text" class="form-control" name="title">
+                <input type="text" class="form-control" name="title" value="{{ $blog->title }}">
 
             </div>
             <div class="mb-3">
                 <label for="exampleInputPassword1" class="form-label">Description</label>
-                <textarea class="form-control" name="description"></textarea>
+                <textarea class="form-control" name="description"> {{ $blog->description }}</textarea>
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th scope="col">Time</th>
-                <th scope="col">Author</th>
-                <th scope="col">Title</th>
-                <th scope="col">Blog</th>
-                <th scope="col">Edit</th>
-                <th scope="col">Delete</th>
-
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($blogs as $blog)
-                <tr>
-                    <th scope="row">{{ $blog->created_at }}</th>
-                    <td>{{ $blog->username }}</td>
-                    <td>{{ $blog->title }}</td>
-                    <td>{{ $blog->description }}</td>
-                    <td><a href="{{ route('edit', ['blog' => $blog]) }}">edit</a></td>
-                    <td><a href="">delete</a></td>
-                </tr>
-            @endforeach
-        </tbody>
-    </table>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>

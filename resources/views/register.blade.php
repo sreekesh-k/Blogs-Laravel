@@ -10,7 +10,8 @@
 
 <body>
     <div class="container">
-        <form action="{{route('register.post')}}" method="POST" class="ms-auto me-auto" style="width:500px">
+        <form action="{{ route('register.post') }}" method="POST" class="ms-auto me-auto" style="width:500px">
+            @csrf
             <h1>Register</h1>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Name</label>

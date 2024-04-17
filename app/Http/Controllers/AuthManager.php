@@ -2,27 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthManager extends Controller
 {
-    public function home()
+    public function login(Request $request)
     {
-        return view('welcome');
+        $data = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        $credentials = $request->only('email', 'password');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended(route('reading'));
+        }
     }
-    public function login()
+    public function register(Request $request)
     {
-        return view('login');
-    }
-    public function register()
-    {
-        return view('register');
-    }
+        $data = $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+        $data['password'] = Hash::make($request->password);
 
-    public function loginPost()
-    {
-    }
-    public function registerPost()
-    {
+        $newuser = User::create($data);
+        return redirect()->intended(route('login'));
     }
 }

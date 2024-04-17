@@ -11,6 +11,7 @@
 <body>
     <div class="container">
         <form action="{{route('login.post')}}" method="POST" class="ms-auto me-auto" style="width:500px">
+            @csrf
             <h1>Login</h1>
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email address</label>
